@@ -26,11 +26,6 @@ pageextension 81900 "HWM Item Card Ext." extends "Item Card"
                     ApplicationArea = All;
                     Editable = false;
 
-                    trigger OnDrillDown()
-                    begin
-                        OpenTranslationOrder(Rec.FieldNo(Rec."E-Comm Description 2"));
-                    end;
-
                     trigger OnAssistEdit()
                     begin
                         OpenTranslationOrder(Rec.FieldNo(Rec."E-Comm Description 2"));
