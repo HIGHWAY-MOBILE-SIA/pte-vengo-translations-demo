@@ -1,0 +1,38 @@
+﻿{
+    "id":  "1d2245e5-27f8-4337-a260-7e1c83690a1a",
+    "name":  "Highway Translations Demo",
+    "publisher":  "Highway Mobile LLC",
+    "version":  "1.0.0.0",
+    "brief":  "Universal database field translations for Business Central (Demo).",
+    "description":  "",
+    "privacyStatement":  "",
+    "EULA":  "",
+    "help":  "",
+    "url":  "https://www.highwaymobi.com/vengo/translationsdemo",
+    "logo":  "",
+    "dependencies":  [
+        {
+            "id": "886179dd-ce7d-4584-b84a-f9cf2bbb4669",
+            "name": "Highway Translations",
+            "publisher": "Highway Mobile LLC",
+            "version": "1.0.0.2"
+        }
+    ],
+    "propagateDependencies": true,
+    "screenshots":  [ ],
+    "platform":  "1.0.0.0",
+    "application":  "21.0.0.0",
+    "target": "Cloud",
+    "idRanges":  [
+                     {
+                         "from":  81900,
+                         "to":  81999
+                     }
+                 ],
+    "resourceExposurePolicy":  {
+                                   "allowDebugging":  true,
+                                   "allowDownloadingSource":  false,
+                                   "includeSourceInSymbolFile":  false
+                               },
+    "runtime": "10.0"
+}

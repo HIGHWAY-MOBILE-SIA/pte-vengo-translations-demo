@@ -10,3 +10,5 @@ rad.json
 .alcache/
 .altemplates/
 cache_*
+.vscode/
+app/.vscode/

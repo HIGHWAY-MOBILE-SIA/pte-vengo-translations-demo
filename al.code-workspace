@@ -1,8 +1,16 @@
 {
-    "folders": [
-        {
-            "path": ".AL-Go"
-        }
-    ],
-    "settings": {}
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": ".AL-Go"
+		},
+		{
+			"path": "app"
+		}
+	],
+    "settings": {
+		"al.incrementalBuild": true
+	}
 }

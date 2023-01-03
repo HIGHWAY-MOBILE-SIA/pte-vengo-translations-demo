@@ -1,9 +1,16 @@
 {
     "country":  "us",
     "appFolders":  [
-    ],
+                       "app"
+                   ],
     "testFolders":  [
+                        "app.test"
+                    ],
+    "doNotBuildTests":  true,
+    "doNotRunTests":  true,
+    "doNotRunBCPTTests":  true,
+    "customCodeCops":  [
+        ".github/BusinessCentral.LinterCop.dll"
     ],
-    "bcptTestFolders":  [
-    ]
+    "RepoVersion":  "1.0"
 }
