@@ -7,6 +7,21 @@ pageextension 81900 "HWM Item Card Ext." extends "Item Card"
     {
         addafter(Item)
         {
+            group(ECommerceField)
+            {
+                Caption = 'Ecommerce field with editor';
+                part(EntryEditorPart; "HWM HtmlEditor CkEditor Part")
+                {
+                    Caption = 'Editable field';
+                    ApplicationArea = All;
+                    UpdatePropagation = SubPart;
+                    SubPageLink =
+                        "Source Table No." = const(Database::Item),
+                        "Source Field No." = const(81902),
+                        "Source System Id" = field(SystemId);
+                    SubPageView = sorting("Source Table No.", "Source Field No.", "Source System Id");
+                }
+            }
             group(ECommerceFields)
             {
                 Caption = 'Ecommerce translatable fields';
@@ -34,7 +49,7 @@ pageextension 81900 "HWM Item Card Ext." extends "Item Card"
             }
             group(ECommerceEditors)
             {
-                Caption = 'Ecommerce translateble field with editors';
+                Caption = 'Ecommerce translatable field with editors';
                 part(EntryBaseCardPart; "HWM Transl. Entry CardPart")
                 {
                     Caption = 'Copywrite (From)';
@@ -67,6 +82,7 @@ pageextension 81900 "HWM Item Card Ext." extends "Item Card"
 
     trigger OnAfterGetCurrRecord()
     begin
+        CurrPage.EntryEditorPart.Page.SetSource(Database::Item, 81902, Rec.RecordId, Rec.SystemId);
         InitTranslationEditorCardParts(Rec.FieldNo("E-Comm Description"));
         EcommDescription2 :=
             iTranslationEntry.GetTranslationValueBySource(
@@ -86,13 +102,13 @@ pageextension 81900 "HWM Item Card Ext." extends "Item Card"
         CurrPage.EntryBaseCardPart.Page.SetSource(Database::Item, FieldNo, Rec.SystemId);
         CurrPage.EntryBaseCardPart.Page.SetCardPartAsBaseLanguage();
         CurrPage.EntryBaseCardPart.Page.SetLanguageCodeEditable(false);
-        CurrPage.EntryBaseCardPart.Page.SetActionsVisible();
+        CurrPage.EntryBaseCardPart.Page.SetOpenCardActionVisible();
 
         CurrPage.EntryCardPart.Page.SetHeader(TranslFieldHeaderNo);
         CurrPage.EntryCardPart.Page.SetSource(Database::Item, FieldNo, Rec.SystemId);
         CurrPage.EntryCardPart.Page.SetTranslationLanguageCode();
         CurrPage.EntryCardPart.Page.SetLanguageCodeEditable(true);
-        CurrPage.EntryCardPart.Page.SetActionsVisible();
+        CurrPage.EntryCardPart.Page.SetOpenCardActionVisible();
     end;
 
     local procedure OpenTranslationOrder(FieldNo: Integer)
